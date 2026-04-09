@@ -3197,6 +3197,7 @@ namespace Scip {
       overrideDocumentation_ = other.overrideDocumentation_.Clone();
       syntaxKind_ = other.syntaxKind_;
       diagnostics_ = other.diagnostics_.Clone();
+      enclosingRange_ = other.enclosingRange_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3319,6 +3320,21 @@ namespace Scip {
       get { return diagnostics_; }
     }
 
+    /// <summary>Field number for the "enclosing_range" field.</summary>
+    public const int EnclosingRangeFieldNumber = 7;
+    private static readonly pb::FieldCodec<int> _repeated_enclosingRange_codec
+        = pb::FieldCodec.ForInt32(58);
+    private readonly pbc::RepeatedField<int> enclosingRange_ = new pbc::RepeatedField<int>();
+    /// <summary>
+    /// (optional) The range of the enclosing definition. Uses the same
+    /// encoding as `range`: either 3 or 4 int32 elements.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<int> EnclosingRange {
+      get { return enclosingRange_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3340,6 +3356,7 @@ namespace Scip {
       if(!overrideDocumentation_.Equals(other.overrideDocumentation_)) return false;
       if (SyntaxKind != other.SyntaxKind) return false;
       if(!diagnostics_.Equals(other.diagnostics_)) return false;
+      if(!enclosingRange_.Equals(other.enclosingRange_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3353,6 +3370,7 @@ namespace Scip {
       hash ^= overrideDocumentation_.GetHashCode();
       if (SyntaxKind != global::Scip.SyntaxKind.UnspecifiedSyntaxKind) hash ^= SyntaxKind.GetHashCode();
       hash ^= diagnostics_.GetHashCode();
+      hash ^= enclosingRange_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3386,6 +3404,7 @@ namespace Scip {
         output.WriteEnum((int) SyntaxKind);
       }
       diagnostics_.WriteTo(output, _repeated_diagnostics_codec);
+      enclosingRange_.WriteTo(output, _repeated_enclosingRange_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3411,6 +3430,7 @@ namespace Scip {
         output.WriteEnum((int) SyntaxKind);
       }
       diagnostics_.WriteTo(ref output, _repeated_diagnostics_codec);
+      enclosingRange_.WriteTo(ref output, _repeated_enclosingRange_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3433,6 +3453,7 @@ namespace Scip {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SyntaxKind);
       }
       size += diagnostics_.CalculateSize(_repeated_diagnostics_codec);
+      size += enclosingRange_.CalculateSize(_repeated_enclosingRange_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3457,6 +3478,7 @@ namespace Scip {
         SyntaxKind = other.SyntaxKind;
       }
       diagnostics_.Add(other.diagnostics_);
+      enclosingRange_.Add(other.enclosingRange_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3497,6 +3519,11 @@ namespace Scip {
             diagnostics_.AddEntriesFrom(input, _repeated_diagnostics_codec);
             break;
           }
+          case 58:
+          case 56: {
+            enclosingRange_.AddEntriesFrom(input, _repeated_enclosingRange_codec);
+            break;
+          }
         }
       }
     #endif
@@ -3535,6 +3562,11 @@ namespace Scip {
           }
           case 50: {
             diagnostics_.AddEntriesFrom(ref input, _repeated_diagnostics_codec);
+            break;
+          }
+          case 58:
+          case 56: {
+            enclosingRange_.AddEntriesFrom(ref input, _repeated_enclosingRange_codec);
             break;
           }
         }

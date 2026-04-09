@@ -3,12 +3,7 @@
 //             ^^^^^^^^^^^ reference scip-dotnet nuget . . Diagnostics/
 //                         ^^^^^^^^^^^^ reference scip-dotnet nuget . . CodeAnalysis/
   using DiffPlex.DiffBuilder;
-//      ^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffPlex/
-//               ^^^^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffBuilder/
   using DiffPlex.DiffBuilder.Model;
-//      ^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffPlex/
-//               ^^^^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffBuilder/
-//                           ^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 Model/
 
   namespace Main;
 //          ^^^^ reference scip-dotnet nuget . . Main/
@@ -18,14 +13,13 @@
   public class Packages
 //             ^^^^^^^^ definition scip-dotnet nuget . . Main/Packages#
 //                      documentation ```cs\nclass Packages\n```
+//                      enclosing_range 6:0 13:1
   {
       DiffPaneModel Diff()
-//    ^^^^^^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 Model/DiffPaneModel#
 //                  ^^^^ definition scip-dotnet nuget . . Main/Packages#Diff().
 //                       documentation ```cs\nprivate DiffPaneModel Packages.Diff()\n```
+//                       enclosing_range 9:4 12:5
       {
           return InlineDiffBuilder.Diff("a", "b");
-//               ^^^^^^^^^^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffBuilder/InlineDiffBuilder#
-//                                 ^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffBuilder/InlineDiffBuilder#Diff().
       }
   }

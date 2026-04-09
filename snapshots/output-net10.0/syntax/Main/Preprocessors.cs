@@ -11,10 +11,12 @@
   public class Preprocessors
 //             ^^^^^^^^^^^^^ definition scip-dotnet nuget . . Main/Preprocessors#
 //                           documentation ```cs\nclass Preprocessors\n```
+//                           enclosing_range 4:0 20:1
   {
       string OS()
 //           ^^ definition scip-dotnet nuget . . Main/Preprocessors#OS().
 //              documentation ```cs\nprivate string Preprocessors.OS()\n```
+//              enclosing_range 7:4 19:5
       {
   #if WIN32
           string os = "Win32";
@@ -26,6 +28,7 @@
           string os = "Unknown";
 //               ^^ definition local 0
 //                  documentation ```cs\nstring os\n```
+//                  enclosing_range 16:8 16:30
   #endif
           return os;
 //               ^^ reference local 0

@@ -10,33 +10,41 @@
       Public Class QuerySyntax
 '                  ^^^^^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#
 '                              documentation ```vb\nClass QuerySyntax\n```
+'                              enclosing_range 3:4 47:13
           Private sourceA As List(Of IGeneric) = New List(Of IGeneric)()
 '                 ^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#sourceA.
 '                         documentation ```vb\nPrivate QuerySyntax.sourceA As List(Of IGeneric)\n```
+'                         enclosing_range 5:8 5:70
 '                                    ^^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#
 '                                                            ^^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#
           Private sourceB As List(Of IGeneric) = New List(Of IGeneric)()
 '                 ^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#sourceB.
 '                         documentation ```vb\nPrivate QuerySyntax.sourceB As List(Of IGeneric)\n```
+'                         enclosing_range 6:8 6:70
 '                                    ^^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#
 '                                                            ^^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#
 
           Interface IGeneric
 '                   ^^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#
 '                            documentation ```vb\nInterface IGeneric\n```
+'                            enclosing_range 8:8 10:21
               Function Method() As String
 '                      ^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#Method().
 '                             documentation ```vb\nFunction IGeneric.Method() As String\n```
+'                             enclosing_range 9:12 9:39
           End Interface
 
           Private Sub [Select]()
 '                     ^^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Select().
 '                              documentation ```vb\nPrivate Sub QuerySyntax.Select()\n```
+'                              enclosing_range 12:8 14:15
               Dim x = From a In sourceA Select a.Method()
 '                 ^ definition local 0
 '                   documentation ```vb\nx As Interface IEnumerable(Of String)\n```
+'                   enclosing_range 13:12 13:55
 '                          ^ definition local 1
 '                            documentation ```vb\na As Interface IGeneric\n```
+'                            enclosing_range 13:25 13:37
 '                               ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#sourceA.
 '                                              ^ reference local 1
 '                                                ^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#Method().
@@ -45,11 +53,14 @@
           Private Sub Projection()
 '                     ^^^^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Projection().
 '                                documentation ```vb\nPrivate Sub QuerySyntax.Projection()\n```
+'                                enclosing_range 16:8 19:15
               Dim x = From a In sourceA Select New With {Key .Name = a.Method()}
 '                 ^ definition local 2
 '                   documentation ```vb\nx As Interface IEnumerable(Of <anonymous type: Key Name As String>)\n```
+'                   enclosing_range 17:12 17:78
 '                          ^ definition local 3
 '                            documentation ```vb\na As Interface IGeneric\n```
+'                            enclosing_range 17:25 17:37
 '                               ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#sourceA.
 '                                                             ^^^^ reference local 5
 '                                                                    ^ reference local 3
@@ -57,8 +68,10 @@
               Dim b = From a In x Select a.Name
 '                 ^ definition local 6
 '                   documentation ```vb\nb As Interface IEnumerable(Of String)\n```
+'                   enclosing_range 18:12 18:45
 '                          ^ definition local 7
 '                            documentation ```vb\na As AnonymousType <anonymous type: Key Name As String>\n```
+'                            enclosing_range 18:25 18:31
 '                               ^ reference local 2
 '                                        ^ reference local 7
 '                                          ^^^^ reference local 5
@@ -67,11 +80,14 @@
           Private Sub Where()
 '                     ^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Where().
 '                           documentation ```vb\nPrivate Sub QuerySyntax.Where()\n```
+'                           enclosing_range 21:8 23:15
               Dim x = From a In sourceA Where a.Method().StartsWith("a") Select a
 '                 ^ definition local 8
 '                   documentation ```vb\nx As Interface IEnumerable(Of IGeneric)\n```
+'                   enclosing_range 22:12 22:79
 '                          ^ definition local 9
 '                            documentation ```vb\na As Interface IGeneric\n```
+'                            enclosing_range 22:25 22:37
 '                               ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#sourceA.
 '                                             ^ reference local 9
 '                                               ^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#Method().
@@ -82,14 +98,18 @@
           Private Sub [Let]()
 '                     ^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Let().
 '                           documentation ```vb\nPrivate Sub QuerySyntax.Let()\n```
+'                           enclosing_range 25:8 27:15
               Dim x = From a In sourceA Let z = New With {Key .A = a.Method(), Key .B = a.Method()} Select z
 '                 ^ definition local 10
 '                   documentation ```vb\nx As Interface IEnumerable(Of <anonymous type: Key A As String, Key B As String>)\n```
+'                   enclosing_range 26:12 26:106
 '                          ^ definition local 11
 '                            documentation ```vb\na As Interface IGeneric\n```
+'                            enclosing_range 26:25 26:37
 '                               ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#sourceA.
 '                                           ^ definition local 12
 '                                             documentation ```vb\nz As AnonymousType <anonymous type: Key A As String, Key B As String>\n```
+'                                             enclosing_range 26:42 26:97
 '                                                              ^ reference local 14
 '                                                                  ^ reference local 11
 '                                                                    ^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#Method().
@@ -102,14 +122,18 @@
           Private Sub Join()
 '                     ^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Join().
 '                          documentation ```vb\nPrivate Sub QuerySyntax.Join()\n```
+'                          enclosing_range 29:8 31:15
               Dim x = From a In sourceA Join b In sourceB On a.Method() Equals b.Method() Select New With {Key .A = a.Method(), Key .B = b.Method()}
 '                 ^ definition local 16
 '                   documentation ```vb\nx As Interface IEnumerable(Of <anonymous type: Key A As String, Key B As String>)\n```
+'                   enclosing_range 30:12 30:146
 '                          ^ definition local 17
 '                            documentation ```vb\na As Interface IGeneric\n```
+'                            enclosing_range 30:25 30:37
 '                               ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#sourceA.
 '                                            ^ definition local 18
 '                                              documentation ```vb\nb As Interface IGeneric\n```
+'                                              enclosing_range 30:43 30:55
 '                                                 ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#sourceB.
 '                                                            ^ reference local 17
 '                                                              ^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#Method().
@@ -126,14 +150,18 @@
           Private Sub MultipleFrom()
 '                     ^^^^^^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#MultipleFrom().
 '                                  documentation ```vb\nPrivate Sub QuerySyntax.MultipleFrom()\n```
+'                                  enclosing_range 33:8 35:15
               Dim x = From a In sourceA From b In sourceB Where a.Method() = b.Method() Select c = New With {Key .A = a.Method(), Key .B = b.Method()} Where c.A = String.Empty
 '                 ^ definition local 19
 '                   documentation ```vb\nx As Interface IEnumerable(Of <anonymous type: Key A As String, Key B As String>)\n```
+'                   enclosing_range 34:12 34:173
 '                          ^ definition local 20
 '                            documentation ```vb\na As Interface IGeneric\n```
+'                            enclosing_range 34:25 34:37
 '                               ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#sourceA.
 '                                            ^ definition local 21
 '                                              documentation ```vb\nb As Interface IGeneric\n```
+'                                              enclosing_range 34:43 34:55
 '                                                 ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#sourceB.
 '                                                               ^ reference local 20
 '                                                                 ^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#Method().
@@ -141,6 +169,7 @@
 '                                                                              ^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#Method().
 '                                                                                              ^ definition local 22
 '                                                                                                documentation ```vb\nc As AnonymousType <anonymous type: Key A As String, Key B As String>\n```
+'                                                                                                enclosing_range 34:93 34:148
 '                                                                                                                 ^ reference local 14
 '                                                                                                                     ^ reference local 20
 '                                                                                                                       ^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#IGeneric#Method().
@@ -155,14 +184,18 @@
           Private Sub Into(Students As List(Of Student))
 '                     ^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Into().
 '                          documentation ```vb\nPrivate Sub QuerySyntax.Into(Students As List(Of Student))\n```
+'                          enclosing_range 37:8 39:15
 '                          ^^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Into().(Students)
 '                                   documentation ```vb\nStudents As List(Of Student)\n```
+'                                   enclosing_range 37:25 37:53
 '                                              ^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#Student#
               Dim sortedGroups = From student In Students Order By student.Last, student.First Group student By student.Last Into newGroup = Group Order By newGroup
 '                 ^^^^^^^^^^^^ definition local 23
 '                              documentation ```vb\nsortedGroups As Interface IOrderedEnumerable(Of <anonymous type: Key Last As String, Key newGroup As Interface IEnumerable(Of Student)>)\n```
+'                              enclosing_range 38:12 38:162
 '                                     ^^^^^^^ definition local 24
 '                                             documentation ```vb\nstudent As Class Student\n```
+'                                             enclosing_range 38:36 38:55
 '                                                ^^^^^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#Into().(Students)
 '                                                                  ^^^^^^^ reference local 24
 '                                                                          ^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#Student#Last.
@@ -173,21 +206,26 @@
 '                                                                                                                       ^^^^ reference scip-dotnet nuget . . VBMain/QuerySyntax#Student#Last.
 '                                                                                                                                 ^^^^^^^^ definition local 25
 '                                                                                                                                          documentation ```vb\nnewGroup As Interface IEnumerable(Of Student)\n```
+'                                                                                                                                          enclosing_range 38:128 38:144
 '                                                                                                                                                           ^^^^^^^^ reference local 25
           End Sub
 
           Private Class Student
 '                       ^^^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Student#
 '                               documentation ```vb\nClass Student\n```
+'                               enclosing_range 41:8 45:17
               Public Property First As String
 '                             ^^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Student#First.
 '                                   documentation ```vb\nPublic Property Student.First As String\n```
+'                                   enclosing_range 42:12 42:43
               Public Property Last As String
 '                             ^^^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Student#Last.
 '                                  documentation ```vb\nPublic Property Student.Last As String\n```
+'                                  enclosing_range 43:12 43:42
               Public Property ID As Integer
 '                             ^^ definition scip-dotnet nuget . . VBMain/QuerySyntax#Student#ID.
 '                                documentation ```vb\nPublic Property Student.ID As Integer\n```
+'                                enclosing_range 44:12 44:41
           End Class
 
       End Class

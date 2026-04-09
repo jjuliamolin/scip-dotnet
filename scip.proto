@@ -405,6 +405,11 @@ message Occurrence {
   SyntaxKind syntax_kind = 5;
   // (optional) Diagnostics that have been reported for this specific range.
   repeated Diagnostic diagnostics = 6;
+  // (optional) The range of the enclosing definition, such as the entire
+  // function body or class body. Must only be set for definition occurrences
+  // (i.e. when SymbolRole.Definition is set in symbol_roles).
+  // Uses the same encoding as `range`: either 3 or 4 int32 elements.
+  repeated int32 enclosing_range = 7;
 }
 
 // Represents a diagnostic, such as a compiler error or warning, which should be

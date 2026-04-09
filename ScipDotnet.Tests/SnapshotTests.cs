@@ -274,6 +274,15 @@ public class SnapshotTests
                         if (relationship.IsTypeDefinition) sb.Append("type_definition ");
                         sb.AppendLine(relationship.Symbol);
                     }
+
+                    if (occurrence.EnclosingRange.Count >= 3)
+                    {
+                        var er = occurrence.EnclosingRange;
+                        if (er.Count == 3)
+                            sb.Append(prefix).AppendLine($"enclosing_range {er[0]}:{er[1]} {er[0]}:{er[2]}");
+                        else
+                            sb.Append(prefix).AppendLine($"enclosing_range {er[0]}:{er[1]} {er[2]}:{er[3]}");
+                    }
                 }
 
                 occurrenceIndex++;

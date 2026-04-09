@@ -3,12 +3,7 @@
 '                ^^^^^^^^^^^ reference scip-dotnet nuget . . Diagnostics/
 '                            ^^^^^^^^^^^^ reference scip-dotnet nuget . . CodeAnalysis/
   Imports DiffPlex.DiffBuilder
-'         ^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffPlex/
-'                  ^^^^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffBuilder/
   Imports DiffPlex.DiffBuilder.Model
-'         ^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffPlex/
-'                  ^^^^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffBuilder/
-'                              ^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 Model/
 
   Namespace VBMain
 '           ^^^^^^ reference scip-dotnet nuget . . VBMain/
@@ -17,13 +12,12 @@
       Public Class Packages
 '                  ^^^^^^^^ definition scip-dotnet nuget . . VBMain/Packages#
 '                           documentation ```vb\nClass Packages\n```
+'                           enclosing_range 5:4 10:13
           Private Function Diff() As DiffPaneModel
 '                          ^^^^ definition scip-dotnet nuget . . VBMain/Packages#Diff().
 '                               documentation ```vb\nPrivate Function Packages.Diff() As DiffPaneModel\n```
-'                                    ^^^^^^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 Model/DiffPaneModel#
+'                               enclosing_range 7:8 9:20
               Return InlineDiffBuilder.Diff("a", "b")
-'                    ^^^^^^^^^^^^^^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffBuilder/InlineDiffBuilder#
-'                                      ^^^^ reference scip-dotnet nuget DiffPlex 1.7.1.0 DiffBuilder/InlineDiffBuilder#Diff().
           End Function
       End Class
   End Namespace
